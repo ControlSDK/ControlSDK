@@ -11,6 +11,7 @@ import org.btelman.controlsdk.enums.ComponentStatus
 import org.btelman.controlsdk.hardware.drivers.libs.usb.UsbService
 import org.btelman.controlsdk.hardware.interfaces.DriverComponent
 import org.btelman.controlsdk.hardware.interfaces.HardwareDriver
+import org.btelman.controlsdk.interfaces.ComponentEventListener
 import org.btelman.controlsdk.services.ControlSDKService
 import org.btelman.logutil.kotlin.LogUtil
 import java.lang.ref.WeakReference
@@ -71,6 +72,10 @@ class FelhrUsbSerialDriver : HardwareDriver {
 
     override fun getAutoReboot(): Boolean {
         return false //Auto reboot useless, as we have to wait for something to connect to us
+    }
+
+    override fun setEventListener(listener: ComponentEventListener?) {
+        // ignore
     }
 
     //Below is all USB Service code from com.felhr.usbservice

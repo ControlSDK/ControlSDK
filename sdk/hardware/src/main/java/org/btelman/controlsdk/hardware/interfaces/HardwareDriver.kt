@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import org.btelman.controlsdk.enums.ComponentStatus
+import org.btelman.controlsdk.interfaces.ComponentEventListener
 import org.btelman.controlsdk.utils.BundleUtil
 
 /**
@@ -46,6 +47,7 @@ interface HardwareDriver{
      * try launching an activity and wait for result
      */
     fun setupComponent(activity: Activity, force : Boolean = false) : Int
+    fun setEventListener(listener: ComponentEventListener?)
 
     /**
      * This gets called in onActivityResult in parent activity. Probably not a good way to do this.

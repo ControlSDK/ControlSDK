@@ -10,6 +10,7 @@ import org.btelman.controlsdk.hardware.drivers.libs.bluetooth.BluetoothClassic
 import org.btelman.controlsdk.hardware.drivers.libs.bluetooth.Connection
 import org.btelman.controlsdk.hardware.interfaces.DriverComponent
 import org.btelman.controlsdk.hardware.interfaces.HardwareDriver
+import org.btelman.controlsdk.interfaces.ComponentEventListener
 import org.btelman.controlsdk.services.ControlSDKService
 import org.btelman.logutil.kotlin.LogUtil
 
@@ -147,6 +148,10 @@ class BluetoothClassicDriver : HardwareDriver {
 
     override fun getAutoReboot(): Boolean {
         return true
+    }
+
+    override fun setEventListener(listener: ComponentEventListener?) {
+        // ignore
     }
 
     companion object {

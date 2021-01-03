@@ -8,6 +8,7 @@ import android.os.Message
 import org.btelman.controlsdk.enums.ComponentStatus
 import org.btelman.controlsdk.enums.ComponentType
 import org.btelman.controlsdk.hardware.interfaces.HardwareDriver
+import org.btelman.controlsdk.interfaces.ComponentEventListener
 import org.btelman.controlsdk.models.Component
 
 /**
@@ -29,6 +30,11 @@ class CommunicationDriverComponent : Component() , Runnable{
         hardwareDriver = HardwareDriver.init(interfaceClazz)
         hardwareDriver?.initConnection(applicationContext)
         uiHandler.post(this)
+    }
+
+    override fun setEventListener(listener: ComponentEventListener?) {
+        super.setEventListener(listener)
+        hardwareDriver?.setEventListener(listener)
     }
 
     override fun getInitialStatus(): ComponentStatus {
