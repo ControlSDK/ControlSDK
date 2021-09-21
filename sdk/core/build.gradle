@@ -55,7 +55,7 @@ dependencies {
     def coroutines_version = "1.2.1"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-    api 'org.btelman.logutil:logutil:1.0'
+    api 'com.github.btelman96:LogUtilKt:v1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0' //annotations...
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     api 'com.google.guava:guava:27.1-android'
@@ -64,5 +64,3 @@ dependencies {
 repositories {
     mavenCentral()
 }
-
-apply from: '../bintray.gradle'

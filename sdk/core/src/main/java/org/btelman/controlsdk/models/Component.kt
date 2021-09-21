@@ -15,6 +15,7 @@ import org.btelman.controlsdk.interfaces.ComponentEventListener
 import org.btelman.controlsdk.interfaces.IComponent
 import org.btelman.controlsdk.services.ControlSDKService
 import org.btelman.logutil.kotlin.LogUtil
+import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -178,10 +179,17 @@ abstract class Component : IComponent {
      */
     open fun handleMessage(message: Message): Boolean{
         var result = false
-        if(message.what == ControlSDKService.EVENT_BROADCAST)
-            (message.obj as? ComponentEventObject)?.let {
-                result = handleExternalMessage(it)
+        when(message.what){
+            ControlSDKService.EVENT_BROADCAST -> {
+                (message.obj as? ComponentEventObject)?.let {
+                    result = handleExternalMessage(it)
+                }
             }
+            ControlSDKService.STATUS_UPDATE -> {
+                status = status
+            }
+        }
+
         return result
     }
 

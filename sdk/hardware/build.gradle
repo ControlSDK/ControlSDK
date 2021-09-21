@@ -61,5 +61,3 @@ repositories {
     jcenter()
     maven { url "https://jitpack.io" }
 }
-
-apply from: '../bintray.gradle'

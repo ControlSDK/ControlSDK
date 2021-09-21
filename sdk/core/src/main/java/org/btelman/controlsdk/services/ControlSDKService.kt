@@ -164,6 +164,9 @@ class ControlSDKService : Service(), ComponentEventListener, Handler.Callback {
             EVENT_BROADCAST ->{
                 sendToComponents(msg)
             }
+            STATUS_UPDATE -> {
+                sendToComponents(msg)
+            }
         }
         return false
     }
@@ -482,6 +485,7 @@ class ControlSDKService : Service(), ComponentEventListener, Handler.Callback {
         const val EVENT_BROADCAST = 7
         const val ATTACH_LISTENER_OR_CONTROLLER = 8
         const val DETACH_LISTENER_OR_CONTROLLER = 9
+        const val STATUS_UPDATE = 10
         const val CONTROL_SERVICE = "control_service"
         const val SERVICE_STATUS_BROADCAST = "org.btelman.controlsdk.ServiceStatus"
         const val SERVICE_STOP_BROADCAST = "org.btelman.controlsdk.request.stop"
