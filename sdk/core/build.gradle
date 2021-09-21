@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply from: '../../unitTesting.gradle'
 
+apply plugin: 'com.github.dcendents.android-maven'
+
 ext{
     publishedGroupId = 'org.btelman.controlsdk'
     libraryName = 'core'
